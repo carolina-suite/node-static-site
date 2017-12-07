@@ -1,0 +1,28 @@
+
+include header.pug
+include mixins/pagination.pug
+include mixins/post.pug
+
+
+div.site-content-contain
+  div#content.site-content
+    div.wrap
+      
+      header.page-header
+        if locals.meta.archiveType == 'date'
+          h1.page-title= locals.date.format('MMMM YYYY')
+        else if locals.meta.archiveType == 'author'
+          h1.page-title= locals.author.name
+        else if locals.meta.archiveType == 'category'
+          h1.page-title= locals.category.name
+        else if locals.meta.archiveType == 'tag'
+          h1.page-title= locals.tag.name
+          
+      div#primary.content-area
+        main#main.site-main(role="main")
+          if locals.posts 
+            each post in posts
+              +contentPost(post, false)
+      
+      include sidebar.pug
+  include footer.pug

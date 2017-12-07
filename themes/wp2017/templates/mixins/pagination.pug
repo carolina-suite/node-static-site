@@ -1,0 +1,12 @@
+
+mixin pagination(pageNumber, nextPageNumber)
+  nav(class="navigation pagination" role="navigation")
+    .nav-links
+      if pageNumber > 1
+        a.page-numbers(href="/posts/page/" + (pageNumber - 1) + "/")
+          span.meta-nav= "Page " + (pageNumber - 1)
+      a(class="page-numbers current")
+        span.meta-nav= "Page " + pageNumber
+      if nextPageNumber
+        a.page-numbers(href="/posts/page/" + nextPageNumber + "/")
+          span.meta-nav= "Page " + nextPageNumber

@@ -1,0 +1,19 @@
+
+div(class="col-12 col-md-3 col-xl-2 bd-sidebar")
+  nav#bd-docs-nav(class="collapse bd-links")
+    each part in book.parts
+      if part.slug == activeChapter.partSlug
+        div(class="bd-toc-item active")
+          a.bd-toc-link(href=part.link)= part.title
+          ul(class="nav bd-sidenav")
+            each chapter in part.chapters
+              if chapter.slug == activeChapter.slug
+                li(class="bd-sidenav-active active")
+                  a(href=chapter.link)= chapter.title
+              else
+                li
+                  a(href=chapter.link)= chapter.title
+      else
+        .bd-toc-item
+          a.bd-toc-link(href=part.link)= part.title
+          

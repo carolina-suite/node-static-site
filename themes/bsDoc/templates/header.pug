@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    
+    meta(charset="utf-8")
+    meta(
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    )
+    
+    if title
+      title= title + ' - ' + project.title
+    else
+      title= project.title
+    
+    link(
+      href="/theme/assets/bootstrap.min.css"
+      rel="stylesheet"
+    )
+    link(
+      href="/theme/assets/bsdocs.min.css"
+      rel="stylesheet"
+    )
+  body
+    header(class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar")
+      .navbar-nav-scroll
+        ul(class="navbar-nav bd-navbar-nav flex-row")
+          each item in project.menu
+            li.nav-item
+              a.nav-link(href=item.link)= item.title
+              

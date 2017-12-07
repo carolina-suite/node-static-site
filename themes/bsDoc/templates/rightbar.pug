@@ -1,0 +1,13 @@
+
+div(class="d-none d-xl-block col-xl-2 bd-toc")
+  ul.section-nav
+    if activeChapter.sections
+      each section in activeChapter.sections
+        li(class="toc-entry toc-h2")
+          a(href="#section-" + section.slug)= section.title
+          if section.subsections
+            each subsection in section.subsections
+              ul
+                li(class="toc-entry toc-h3")
+                  a(href="#section-" + section.slug + "-" + subsection.slug)= subsection.title
+              

@@ -1,0 +1,45 @@
+doctype html 
+html(lang="en-US")
+  head
+    
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    
+    if locals.page
+      title= page.title + ' - ' + project.title
+    else
+      title= project.title
+    
+    link(href="/theme/assets/css/style.css" rel="stylesheet")
+  body(class="home blog mp6 customizer-styles-applied hfeed has-header-image has-sidebar colors-light cannot-edit highlander-enabled highlander-light infinite-scroll")
+    
+    header(id="masthead" class="site-header" role="banner")
+      div(class="custom-header" style="margin-bottom: 0px;")
+        div.custom-header-media
+          div#wp-custom-header.wp-custom-header
+          img(src="/theme/assets/images/header.jpg" alt=project.title width="2000" height="1200")
+      div.site-branding(style="margin-bottom: 0px;")
+        div.wrap
+          div.site-branding-text
+            
+            h1.site-title
+              a(href="/")= project.title 
+            
+            p.site-description= project.description
+            
+    if project.menu
+      div(class="navigation-top site-navigation-fixed")
+        .wrap
+          nav#site-navigation.main-navigation(role="navigation" aria-label="Top Menu")
+            .menu-primary-container
+              ul#top-menu.menu
+                each item in project.menu
+                  li.menu-item
+                    a(href=item.link)= item.title
+        
+            
+    if locals.page && !locals.meta.isFrontPage && locals.page.featuredImage 
+      div.single-featured-image-header
+        img(src=page.featuredImage)
+    
+    

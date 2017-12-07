@@ -1,0 +1,26 @@
+
+aside#secondary.widget-area(role="complementary")
+  section#recent-comments-3(class="widget widget_recent_entries")
+    
+    h2.widget-title Recent Posts
+    
+    ul
+      for post in locals.allData.allPosts.slice(0, 5)
+        li
+          a(href=post.permalink)= post.title
+  section#archives-3(class="widget widget_archive")
+    
+    h2.widget-title Archives
+    
+    ul
+      for dateArchive in locals.allData.dateArchives.slice(0, 10)
+        li
+          a(href="/archives/date/" + dateArchive.slug + '/')= dateArchive.name
+  section#categories-3(class="widget widget_categories")
+    
+    h2.widget-title Categories
+    
+    ul
+      for categoryArchive in locals.allData.categoryArchives
+        li
+          a(href=categoryArchive.category.permalink)= categoryArchive.category.name

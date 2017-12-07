@@ -1,0 +1,14 @@
+
+include header.pug
+include mixins/pagination.pug
+include mixins/page.pug
+
+div.site-content-contain
+  div#content.site-content
+    div.wrap
+      div#primary.content-area
+        main#main.site-main(role="main")
+          +contentPage(page)
+      
+      include sidebar.pug
+  include footer.pug

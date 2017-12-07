@@ -1,0 +1,18 @@
+
+include header.pug
+include mixins/pagination.pug
+include mixins/post.pug
+
+div.site-content-contain
+  div#content.site-content
+    div.wrap
+      
+      header.page-header
+        h2.page-title Posts
+        
+      div#primary.content-area
+        main#main.site-main(role="main")
+          +contentPost(post, true)
+      
+      include sidebar.pug
+  include footer.pug

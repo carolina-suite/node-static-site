@@ -1,0 +1,8 @@
+
+parentCategory:
+  name: Parent Category
+  slug: parent-category
+childCategory:
+  name: Child Category
+  slug: child-category
+  parent: parentCategory

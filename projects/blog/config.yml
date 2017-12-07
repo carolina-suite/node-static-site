@@ -1,0 +1,14 @@
+
+title: My Blog
+description: This is my blog.
+theme: wp2017
+# if homePage is not "posts", it should be the slug of a page
+homePage: posts
+pageSize: 2
+menu:
+  - title: Home
+    link: /
+  - title: About
+    link: /pages/about/
+  - title: GitHub
+    link: https://github.com/

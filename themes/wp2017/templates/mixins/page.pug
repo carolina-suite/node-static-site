@@ -1,0 +1,12 @@
+
+mixin contentPage(page)
+
+  article(
+    id="post " + page.slug
+    class="post"
+  )
+  
+    header.entry-header
+      h1.entry-title= page.title
+      
+    .entry-content!= page.text

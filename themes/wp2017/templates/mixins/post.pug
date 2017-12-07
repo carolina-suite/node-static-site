@@ -1,0 +1,76 @@
+
+mixin contentPost(post, isSingle)
+
+  article(
+    id="post-" + post.slug
+    class="post"
+  )
+  
+    header.entry-header
+      div.entry-meta
+        span.posted-on
+          a(href=post.permalink)= post.date.format("MMMM D[,] YYYY")
+        if post.author
+          span  by
+            span(class="author vcard")
+              a(href=post.author.permalink)= ' ' + post.author.name
+      if isSingle 
+        h1.entry-title= post.title
+      else
+        h3.entry-title
+          a(href=post.permalink)= post.title
+      
+    if post.featuredImage
+      if post.featuredImageCaption
+        figure(class="wp-caption alignnone" style="max-width: 435px;")
+          img.wp-image(alt=post.featuredImageCaption src=post.featuredImage width="435")
+          figcaption.wp-caption-text= post.featuredImageCaption
+      else
+        img(src=post.featuredImage)
+    
+    .entry-content
+      
+      if !isSingle
+        
+        div!= post.partialText
+        
+        br
+        
+        p
+          a(href=post.permalink) Continue reading...
+      else
+        div!= post.text
+        
+    if isSingle && (post.categories || post.tags)
+      span.cat-tags-links
+        if post.categories
+          span.cat-links
+            each cat, index in post.categories
+              
+              a(href=cat.permalink)= ' ' + cat.name
+              
+              if index == post.categories.length - 1
+                span ,
+        if post.tags
+          span.tags-links
+            each tag, index in post.tags
+              
+              a(href=tag.permalink)= ' ' + tag.name
+              
+              if index == post.tags.length - 1
+                span ,
+            
+    
+    if isSingle
+      nav(class="navigation post-navigation" role="navigation")
+        div.nav-links
+          if post.previousPost
+            .nav-previous
+              a(href=post.previousPost.permalink rel="prev")
+                span.nav-subtitle(aria-hidden="true") Previous 
+                span.nav-title= post.previousPost.title
+          if post.nextPost
+            .nav-next
+              a(href=post.nextPost.permalink rel="next")
+                span.nav-subtitle(aria-hidden="true") Next 
+              span.nav-title= post.nextPost.title

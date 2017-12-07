@@ -1,0 +1,28 @@
+
+include header.pug
+
+.container-fluid
+  div(class="row flex-xl-nowrap")
+    
+    include sidebar.pug
+    include rightbar.pug
+    
+    main(class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" rol="main")
+      
+      h1#content.bd-title= activeChapter.title
+      
+      p.bd-lead= activeChapter.description
+      
+      if activeChapter.text
+        div!= activeChapter.text
+      if activeChapter.sections
+        each section in activeChapter.sections
+          h2(id="section-"+section.slug)
+            div= section.title
+          div!= section.text
+          if section.subsections
+            each subsection in section.subsections
+              h3(id="section-"+section.slug+"-"+subsection.slug)
+                div= subsection.title
+              div!= subsection.text
+        
