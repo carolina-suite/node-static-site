@@ -66,5 +66,6 @@ module.exports = function(text) {
 
 There are two included themes:
 
+* `bw-lumen`: A blog theme based on Bootwatch theme Lumen.
 * `wp2017`: A blog theme based on Wordpress 2017
-* `bsDoc`: A book and pages only theme based on the Bootstrap documentation.
+* `bsDoc_book`: A book and pages only theme based on the Bootstrap documentation.
