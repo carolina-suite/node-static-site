@@ -1,0 +1,77 @@
+
+mixin postImage(post)
+  .card 
+    img.card-img-top(src=post.featuredImage)
+    if post.categories
+      .card-body
+        p.card-text
+          a(href=post.categories[post.categories.length-1].permalink)= post.categories[post.categories.length-1].name
+
+mixin postEntry(post)
+
+  if post.featuredImage 
+    +postImage(post)
+  
+  h2.display
+    a(href=post.permalink)= post.title
+  
+  p.small-text= post.date.format("MMMM D[,] YYYY")
+    if post.author
+      | | by: 
+      a(href=post.author.permalink)= post.author.name
+  
+  div!= post.partialText
+  
+  a.btn.btn-lg.btn-info(href=post.permalink) Read More &rarr;
+  
+  br
+  br
+    
+mixin postContent(post)
+
+  if post.featuredImage 
+    +postImage(post)
+
+  h2.display
+    a(href=post.permalink)= post.title
+
+  p.small-text= post.date.format("MMMM D[,] YYYY")
+    if post.author
+      | | by: 
+      a(href=post.author.permalink)= post.author.name
+
+  div!= post.text
+
+  .row
+    .col-md-6
+      if post.previousPost
+        a(href=post.previousPost.permalink)= "< " + post.previousPost.title 
+    .col-md-6.text-right
+      if post.nextPost
+        a(href=post.nextPost.permalink)= post.nextPost.title + " >"
+
+  br
+  br
+  
+  if post.author
+    .card
+      .row
+        .col-sm-2
+          if post.author.imageUrl
+            img.rounded(
+              src=post.author.imageUrl
+              width="100%"
+             )
+        .col-sm-8
+          p.text-right
+            if post.author.twitterUrl
+              a.fa.fa-twitter(href=post.author.twitterUrl style="text-decoration:none")
+              |  
+            if post.author.facebookUrl
+              a.fa.fa-facebook(href=post.author.facebookUrl style="text-decoration:none")
+            
+          p.lead= post.author.name
+          if post.author.bio
+            p= post.author.bio
+            
+      

@@ -1,0 +1,40 @@
+
+include mixins.pug
+include ../../_includes/bootstrap/head.pug
+
+body
+  
+  include navbar.pug
+  
+  if locals.meta.frontPage
+    include banner.pug
+  else
+    include header.pug
+    
+  br
+  br
+    
+  .container
+    .row
+      .col-md-8
+        block body
+          if locals.meta.isSingle && locals.post
+            +postContent(locals.post)
+          else if locals.posts
+            
+            +postEntry(locals.posts[0])
+            
+            .row
+              each post in locals.posts.slice(1, locals.posts.length)
+                .col-md-6
+                  +postEntry(post)
+                  
+            include pagination.pug
+      .col-md-4
+        include sidebar.pug
+  
+  br
+  br
+  
+  include footer.pug
+  include ../../_includes/bootstrap/script.pug

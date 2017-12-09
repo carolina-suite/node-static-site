@@ -1,0 +1,15 @@
+doctype html
+head
+  
+  if locals.page 
+    title= page.title
+  else if locals.post 
+    title= post.title
+  else
+    title= project.title
+  
+  meta(charset="utf-8")
+  meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    
+  link(href="/theme/assets/bootstrap.min.css" rel="stylesheet")
+  link(href="/theme/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet")

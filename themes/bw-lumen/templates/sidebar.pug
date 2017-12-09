@@ -1,0 +1,15 @@
+
+h2 Recent Posts
+
+.list-group
+  each post in locals.allData.allPosts.slice(0, 5)
+    a.list-group-item.list-group-item-action(href=post.permalink)= post.title
+    
+br
+br
+      
+h2 Categories 
+
+.list-group
+  for categoryArchive in locals.allData.categoryArchives
+     a.list-group-item.list-group-item-action(href=categoryArchive.category.permalink)= categoryArchive.category.name

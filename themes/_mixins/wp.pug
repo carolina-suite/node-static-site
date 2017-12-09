@@ -1,0 +1,6 @@
+
+mixin xnav(menu)
+  ul#top-menu.menu 
+    each item in menu 
+      li.menu-item
+        a(href=item.link)= item.title

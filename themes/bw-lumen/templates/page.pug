@@ -1,0 +1,30 @@
+
+include mixins.pug
+include ../../_includes/bootstrap/head.pug
+
+body
+  
+  include navbar.pug
+  
+  if locals.meta.frontPage
+    include banner.pug
+  else
+    include header.pug
+    
+  br
+  br
+  
+  if locals.meta.frontPage
+    .container
+      .row
+        .col-sm-8!= page.text
+        .col-md-4
+          include sidebar.pug
+  else
+    .container!= page.text
+      
+  br
+  br
+  
+  include footer.pug
+  include ../../_includes/bootstrap/script.pug

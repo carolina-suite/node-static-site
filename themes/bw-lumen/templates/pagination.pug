@@ -1,0 +1,11 @@
+
+if locals.meta.pageNumber
+  nav
+    ul.pagination
+      if locals.meta.pageNumber > 1
+        li.page-item
+          a.page-link(href="/posts/page/" + (locals.meta.pageNumber - 1) + "/")= '<'
+      if locals.meta.nextPage
+        li.page-item
+          a.page-link(href="/posts/page/" + (locals.meta.nextPage) + "/")= '>'
+        

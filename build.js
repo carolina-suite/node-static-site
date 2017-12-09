@@ -169,6 +169,15 @@ if (fs.existsSync(path.join(projectDir, 'pages'))) {
 
 posts = _.sortBy(posts, 'date').reverse();
 
+for (var i = 0; i < posts.length; ++i) {
+  if (i > 0) {
+    posts[i].previousPost = posts[i-1];
+  }
+  if (i < posts.length - 1) {
+    posts[i].nextPost = posts[i+1];
+  }
+}
+
 // gather posts pages
 var postPages = {};
 var pageNumber = 1;
@@ -315,7 +324,8 @@ for (var i = 1; postPages.hasOwnProperty(i); ++i) {
     allData: allData,
     meta: meta,
     posts: postPages[i],
-    project: projectConfig
+    project: projectConfig,
+    title: "Posts"
   });
 
   fs.ensureDirSync(path.join(outputDir, 'posts', 'page', '' + i));
@@ -326,7 +336,7 @@ for (var i = 1; postPages.hasOwnProperty(i); ++i) {
 // create pages
 for (var i = 0; i < pages.length; ++i) {
 
-  var meta = { isSingle: false }
+  var meta = { isSingle: true }
   var pagePageText = pug.renderFile(getTemplateName({
     type: 'page',
     page: pages[i],
@@ -335,7 +345,8 @@ for (var i = 0; i < pages.length; ++i) {
     allData: allData,
     meta: meta,
     page: pages[i],
-    project: projectConfig
+    project: projectConfig,
+    title: pages[i].title
   });
 
   fs.ensureDirSync(path.join(outputDir, 'pages', pages[i].slug));
@@ -368,7 +379,7 @@ if (projectConfig.hasOwnProperty('book')) {
 // create posts
 for (var i = 0; i < posts.length; ++i) {
 
-  var meta = { isSingle: false }
+  var meta = { isSingle: true }
   var fileContents = null;
   if (posts[i].isFile) {
     meta.isFile = true;
@@ -384,7 +395,8 @@ for (var i = 0; i < posts.length; ++i) {
     fileContents: fileContents,
     meta: meta,
     post: posts[i],
-    project: projectConfig
+    project: projectConfig,
+    title: posts[i].title
   });
 
   fs.ensureDirSync(path.join(outputDir, `${posts[i].date.format("YYYY[/]MM[/]DD")}/${posts[i].slug}/`));
@@ -407,7 +419,8 @@ for (var i = 0; i < dateArchives.length; ++i) {
     date: moment(archive.slug, 'YYYY/MM'),
     meta: meta,
     posts: archive.posts,
-    project: projectConfig
+    project: projectConfig,
+    title: "Archives"
   });
 
   fs.ensureDirSync(path.join(outputDir, 'archives', 'date', archive.slug));
@@ -428,7 +441,8 @@ for (var prop in authorArchives) {
     author: archive.author,
     meta: meta,
     posts: archive.posts,
-    project: projectConfig
+    project: projectConfig,
+    title: archive.author.name
   });
 
   fs.ensureDirSync(path.join(outputDir, 'archives', 'author', archive.slug));
@@ -449,7 +463,8 @@ for (var prop in categoryArchives) {
     category: archive.category,
     meta: meta,
     posts: archive.posts,
-    project: projectConfig
+    project: projectConfig,
+    title: archive.category.name
   });
 
   fs.ensureDirSync(path.join(outputDir, 'archives', 'category', archive.slug));
@@ -470,7 +485,8 @@ for (var prop in tagArchives) {
     tag: archive.tag,
     meta: meta,
     posts: archive.posts,
-    project: projectConfig
+    project: projectConfig,
+    title: archive.tag.name
   });
 
   fs.ensureDirSync(path.join(outputDir, 'archives', 'tag', archive.slug));
@@ -493,7 +509,8 @@ var indexHtmlText = pug.renderFile(getTemplateName({
     meta: indexMeta,
     page: projectConfig.loadedHomePage,
     posts: postPages[1],
-    project: projectConfig
+    project: projectConfig,
+    title: projectConfig.title
   }
 );
 fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtmlText);

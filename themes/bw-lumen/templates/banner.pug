@@ -1,0 +1,25 @@
+
+.bg-dark.card.text-center.text-white
+  
+  if project.bannerImage
+    img.card-img(height="300px" width="100%" src=project.bannerImage )
+  else 
+    img.card-img(height="300px" width="100%" src="/theme/assets/images/default-banner.jpg")
+      
+  .card-img-overlay
+    if project.bannerImageText
+      h2.card-title(style="margin-top:100px")= project.bannerImageText 
+    else 
+      h2.card-title(style="margin-top:100px")= "Welcome to My Site"
+    if project.bannerImageSubtext
+      p.card-text= project.bannerImageSubtext
+    else
+      p.card-text This is a really great site.
+    if project.bannerButton1
+      p
+        
+        a.btn.btn-lg.btn-outline-secondary(href=project.bannerButton1.link)= project.bannerButton1.title
+        
+        if project.bannerButton2
+          a.btn.btn-lg.btn-dark(href=project.bannerButton2.link)= project.bannerButton2.title
+    

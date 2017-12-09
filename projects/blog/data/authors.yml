@@ -2,3 +2,7 @@
 siteAdmin:
   name: Site Admin
   slug: site-admin
+  imageUrl: /assets/images/kyoto.jpg
+  twitterUrl: https://twitter.com
+  facebookUrl: https://facebook.com
+  bio: This is my personal little blurb about my hobbies and stuff and it has cute jokes.

@@ -1,14 +1,31 @@
 
 title: My Blog
 description: This is my blog.
-theme: wp2017
+theme: bw-lumen
 # if homePage is not "posts", it should be the slug of a page
-homePage: posts
-pageSize: 2
+homePage: home
+pageSize: 5
 menu:
   - title: Home
     link: /
   - title: About
     link: /pages/about/
-  - title: GitHub
-    link: https://github.com/
+  - title: Social Networks
+    isDropdown: true
+    menu:
+      - title: Facebook
+        link: https://facebook.com
+      - title: Twitter
+        link: https://twitter.com
+      - title: GitHub
+        link: https://github.com
+
+# options for bw-lumen
+bannerImageText: My Blog
+bannerImageSubtext: Thank you for stopping by.
+bannerButton1:
+  title: My Twitter
+  link: https://twitter.com
+bannerButton2:
+  title: My GitHub
+  link: https://github.com
