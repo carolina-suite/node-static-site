@@ -125,8 +125,8 @@ if (fs.existsSync(path.join(projectDir, 'posts'))) {
 
     // assign text and partialText
     var postText = marked(fs.readFileSync(filePath.substring(0, filePath.length - 4) + '.md').toString());
-    postConfig.text = postText;
     if (replacements) postText = replacements(postText)
+    postConfig.text = postText;
     var splitText = postText.split('<!--more-->');
 
     postConfig.partialText = splitText[0];
