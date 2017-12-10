@@ -1,0 +1,38 @@
+
+include ../../_includes/bootstrap/head.pug
+
+body
+  
+  include navbar.pug
+  
+  if locals.meta.frontPage
+    include carousel.pug
+    
+  br
+  br
+  
+  if locals.meta.frontPage
+    .container
+      
+      h2.display= page.title
+      
+      div!= page.text
+  else 
+    .container
+      .row
+        .col-md-8
+          
+          h2.display= page.title 
+          
+          div!= page.text
+        
+        .col-md-4
+          include sidebar.pug
+    
+  br
+  br
+    
+  include footer.pug
+  include ../../_includes/bootstrap/script.pug
+  script(src="/theme/assets/js/carousel.js")
+  script(src="/theme/assets/js/facebook-sdk.js")

@@ -1,0 +1,8 @@
+
+if locals.meta.pageNumber
+  p.text-center
+    if locals.meta.pageNumber > 1
+        a.btn.btn-info(href="/posts/page/" + (locals.meta.pageNumber - 1) + "/") Prev
+    if locals.meta.nextPage
+      a.btn.btn-info(href="/posts/page/" + (locals.meta.nextPage) + "/") Next
+        

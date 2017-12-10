@@ -1,0 +1,34 @@
+
+if project.carousel
+  #main-carousel.carousel.slide
+    
+    .carousel-inner
+      each item, index in project.carousel
+        if index == 0
+          .carousel-item.active
+            
+            img.d-block.w-100(src=item.imageUrl height="300px")
+            
+            .carousel-caption.d-none.d-md-block
+              if item.link && item.title
+                h3
+                  a(href=item.link)= item.title
+              else if item.title
+                h3= item.title
+              if item.subtitle
+                p= item.subtitle
+              
+        else
+          .carousel-item
+            
+            img.d-block.w-100(src=item.imageUrl height="300px")
+            
+            .carousel-caption.d-none.d-md-block
+              if item.link && item.title
+                h3
+                  a(href=item.link)= item.title
+              else if item.title
+                h3= item.title
+              if item.subtitle
+                p= item.subtitle
+        
