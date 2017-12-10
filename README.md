@@ -8,7 +8,7 @@ This is a carolina static site workspace. For a basic blog, follow the example.
 ## Book Projects #
 
 To make a book project, the project should have a `book` dir.
-All references in config.yml are from the book dir.
+All references in `config.yml` are from the book dir.
 
 The `config.yml` for a book should look like this:
 
