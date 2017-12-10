@@ -5,6 +5,29 @@ This is a carolina static site workspace. For a basic blog, follow the example.
 
 `node build <projectname>`
 
+## Custom Replacements #
+
+If you want to alter the text of your rendered MD files (which is rendered
+by `marked`), you can supply a `replacements.js` file in the root of your
+particular project directory.
+
+Example:
+
+```js
+module.exports = function(text) {
+  return text.replace(/\<table\>/g, '<table class="table">');
+}
+```
+
+## Themes #
+
+Included themes.
+
+* `bw-lumen`: A blog theme based on Bootwatch theme Lumen.
+* `bw-sandstone`: A blog theme based on the Bootswatch theme Sandstone.
+* `wp2017`: A blog theme based on Wordpress 2017
+* `bsDoc_book`: A book and pages only theme based on the Bootstrap documentation.
+
 ## Book Projects #
 
 To make a book project, the project should have a `book` dir.
@@ -47,25 +70,3 @@ book:
 
 Parts must have chapters, but all other levels are optional and can include
 a file and sub-parts.
-
-### Custom Replacements #
-
-If you want to alter the text of your rendered MD files (which is rendered
-by `marked`), you can supply a `replacements.js` file in the root of your
-particular project directory.
-
-Example:
-
-```js
-module.exports = function(text) {
-  return text.replace(/\<table\>/g, '<table class="table">');
-}
-```
-
-## Themes #
-
-There are two included themes:
-
-* `bw-lumen`: A blog theme based on Bootwatch theme Lumen.
-* `wp2017`: A blog theme based on Wordpress 2017
-* `bsDoc_book`: A book and pages only theme based on the Bootstrap documentation.
