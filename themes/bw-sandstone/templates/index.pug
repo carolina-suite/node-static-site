@@ -1,0 +1,42 @@
+
+include mixins.pug
+include ../../_includes/bootstrap/head.pug
+
+body
+  
+  include navbar.pug
+  
+  if locals.meta.frontPage
+    include carousel.pug
+  else if locals.posts || locals.post
+    .bg-light.card
+      .card-body.container
+        .row
+          h1.card-title= locals.title
+    
+  br
+  br
+    
+  .container
+    .row
+      .col-md-8
+        if locals.meta.isSingle && locals.post
+          +postContent(post)
+        else if locals.posts
+          each post in posts 
+            
+            +postListing(post)
+            
+          br
+            
+          include pagination.pug
+      .col-md-4
+        include sidebar.pug
+  
+  br
+  br
+    
+  include footer.pug
+  include ../../_includes/bootstrap/script.pug
+  script(src="/theme/assets/js/carousel.js")
+  script(src="/theme/assets/js/facebook-sdk.js")

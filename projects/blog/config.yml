@@ -1,7 +1,7 @@
 
 title: My Blog
 description: This is my blog.
-theme: bw-lumen
+theme: bw-sandstone
 # if homePage is not "posts", it should be the slug of a page
 homePage: home
 pageSize: 5
@@ -10,6 +10,8 @@ menu:
     link: /
   - title: About
     link: /pages/about/
+  - title: Blog
+    link: /posts/page/1/
   - title: Social Networks
     isDropdown: true
     menu:
@@ -20,12 +22,16 @@ menu:
       - title: GitHub
         link: https://github.com
 
-# options for bw-lumen
-bannerImageText: My Blog
-bannerImageSubtext: Thank you for stopping by.
-bannerButton1:
-  title: My Twitter
-  link: https://twitter.com
-bannerButton2:
-  title: My GitHub
-  link: https://github.com
+# options for bw-sandstone
+aboutBlurb:
+  title: About Me
+  text: I am the author of this website and I do several cute things in my free time.
+carousel:
+  - imageUrl: /assets/images/Freezed_XRD.jpg
+    link: https://wikipedia.com
+    title: Wikipedia
+    subtitle: The encyclopedia that anyone can edit.
+  - imageUrl: /assets/images/Munich_Subway_Station.jpg
+    title: Awesome Features
+    subtitle: There are awesome features all over the place.
+facebookPage: facebook

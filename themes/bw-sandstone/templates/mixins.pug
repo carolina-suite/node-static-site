@@ -1,0 +1,55 @@
+
+mixin postDate(date)
+  
+  h1.text-info.text-center= date.format('DD')
+  
+  p.text-center
+    b= date.format('MMM YYYY')
+    
+  hr
+
+mixin postContent(post)
+  .div
+    .float-left.p-5
+      +postDate(post.date)
+    != post.text
+
+mixin postListing(post)
+  .row 
+    .col-md-2
+      +postDate(post.date)
+    .col-md-10
+      
+      if post.featuredImage
+        .card 
+          
+          img.card-img-top(src=post.featuredImage)
+          
+          .card-body
+            h2.card-title
+              a.text-dark(href=post.permalink style="text-decoration:none")= post.title
+      else
+        h2.card-title
+          a.text-dark(href=post.permalink style="text-decoration:none")= post.title
+      if post.categories
+        p
+          
+          span.fa.fa-bookmark.text-info &nbsp;
+          
+          i
+            each category, index in post.categories
+              
+              a(href=category.permalink style="text-decoration:none")= category.name
+              
+              if index != post.categories.length - 1
+                | , 
+      
+      div!= post.partialText
+      
+      br
+      
+      a.btn.btn-info(href=post.permalink) Read More
+      
+      br
+      br
+      br

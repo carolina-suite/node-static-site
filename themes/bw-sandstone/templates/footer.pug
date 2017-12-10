@@ -1,0 +1,55 @@
+
+.bg-primary.card.mb-3.text-white
+  
+  .card-body
+    .container
+      .row
+        
+        if project.aboutBlurb
+          .col-md-3
+            
+            h4.display= project.aboutBlurb.title
+            
+            br
+            
+            p= project.aboutBlurb.text
+            
+        .col-md-3
+          
+          h4.display Categories
+          
+          br
+          
+          each categoryArchive in locals.allData.categoryArchives
+            p
+              a(href=categoryArchive.category.permalink style="text-decoration:none")= categoryArchive.category.name
+        .col-md-3
+          
+          h4.display Recent Posts
+          
+          br
+          
+          each post in locals.allData.allPosts.slice(0, 9)
+            p
+              a(href=post.permalink style="text-decoration:none")= post.title
+        
+        if project.facebookPage
+          .col-md-3
+            
+            h4.display Like Us on Facebook
+            
+            br
+             
+            .fb-page(
+              data-adapt-container-width="true"
+              data-hide-cover="false"
+              data-href="https://www.facebook.com/" + project.facebookPage
+              data-show-facepile="true"
+              data-small-header="false"
+              data-tabs="timeline"
+            )
+            
+  .bg-primary.card-footer
+    p.text-center Built with 
+      a(href="https://github.com/carolina-suite/carolina-cli" target="_blank") Carolina
+      | .

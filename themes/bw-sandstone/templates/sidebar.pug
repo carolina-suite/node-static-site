@@ -1,0 +1,26 @@
+
+if project.facebookPage
+    
+  h4.display Like Us
+  
+  br
+   
+  .fb-page(
+    data-adapt-container-width="true"
+    data-hide-cover="false"
+    data-href="https://www.facebook.com/" + project.facebookPage
+    data-show-facepile="true"
+    data-small-header="false"
+    data-tabs="timeline"
+  )
+
+  br
+  br
+  
+h4.display Recent Posts
+
+br
+  
+each post in locals.allData.allPosts.slice(0, 5)
+  p
+    a(href=post.permalink style="text-decoration:none")= post.title
