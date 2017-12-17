@@ -31,6 +31,11 @@ Most themes will also support a URL value for `featuredImage`.
 Other values may be added and depending on the theme. Extra, unused values
 do not hurt, so feel free to put comments in this file.
 
+**Important**
+
+The keys `partialText` and `text` must be avoided otherwise they will be
+overwritten.
+
 ## Post Content #
 
 Post content is written in

@@ -11,7 +11,6 @@ Topics:
 * [Defining Authors](./AUTHORS.md)
 * [Writing Pages](./PAGES.md)
 * [Adding Assets](./ASSETS.md)
-* [Featured Images](./IMAGES.md)
 * [Writing Books](./BOOKS.md)
 * [Replacements](./REPLACEMENTS.md)
 * Developing Themes
