@@ -1,72 +1,99 @@
 
-# Static Site #
+# Static Site Starter #
 
-This is a carolina static site workspace. For a basic blog, follow the example.
+It is the "static-site" template used by the
+[Carolina CLI](https://github.com/carolina-suite/carolina-cli).
 
-`node build <projectname>`
+It is a starter template for a static site generation project. It supports
+having multiple sites with various themes. It is primarily focused on building
+blogs or content-based web pages. Support for "books" is experimental.
 
-## Custom Replacements #
+## Getting Started #
 
-If you want to alter the text of your rendered MD files (which is rendered
-by `marked`), you can supply a `replacements.js` file in the root of your
-particular project directory.
+Use this repository as a starting point for a static sites project.
 
-Example:
+### Installation #
 
-```js
-module.exports = function(text) {
-  return text.replace(/\<table\>/g, '<table class="table">');
-}
+**Via Carolina**
+
+`carolina new static-site {dirName}`
+
+**Via Git**
+
+`git clone https://github.com/carolina-suite/node-static-site {dirName}`
+
+After pulling the repository, navigated into the new directory and run
+`npm i` to install dependencies.
+
+You should also create a directory called "out".
+
+### Usage #
+
+This starts with a project called "blog". To test it out, run `node build blog`.
+
+This will create the output directory `out/blog/`.
+
+To test it out in the browser, it is recommended that you globally
+install `http-server`.
+
+```bash
+# install http-server globally if you don't have it
+npm i -g http-server
+# This will server the output directory at http://localhost:8080/
+http-server ./out/blog/
 ```
 
-## Themes #
+## Docs #
 
-Included themes.
+For more details see the [docs](./docs/README.md).
 
-* `bw-lumen`: A blog theme based on Bootwatch theme Lumen.
-* `bw-sandstone`: A blog theme based on the Bootswatch theme Sandstone.
-* `wp2017`: A blog theme based on Wordpress 2017
-* `bsDoc_book`: A book and pages only theme based on the Bootstrap documentation.
+## Files #
 
-## Book Projects #
+### `docs/` #
 
-To make a book project, the project should have a `book` dir.
-All references in `config.yml` are from the book dir.
+This is the documentation files for this repository.
 
-The `config.yml` for a book should look like this:
+### `lib/` #
 
-```
-title: My Book
-description: This is my book.
-theme: bsDoc
-# if homePage is not "posts", it should be the slug of a page
-homePage: welcome
-pageSize: 2
-menu:
-  - title: Home
-    link: /
-  - title: Book
-    link: /book/Part-1/Chapter-1/
-  - title: GitHub
-    link: https://github.com/
-book:
-  parts:
-    - title: Part 1
-      description: This is Part 1 of the book.
-      chapters:
-        - title: Introduction
-          description: K
-          file: basics/introduction.md
-        - title: Chapter 1
-          description: K
-          file: basics/ch1.md
-          sections:
-            - title: Sec 1
-              file: sections/sec1.md
-              subsections:
-                - title: Sec 1.1
-                  file: sections/sec1-1.md
-```
+This directory contains js files used by the build process for making the
+output.
 
-Parts must have chapters, but all other levels are optional and can include
-a file and sub-parts.
+### `out/` #
+
+This is where your output project will go when you run the build process.
+
+### `projects/` #
+
+Place your projects here. This repository comes with a sample project called
+blog, but you can have any number of projects.
+
+### `ref/` #
+
+#### `ref/TEMPLATES.md` #
+
+A reference file for the template hierarchy.
+
+### `themes/` #
+
+Themes go in here. Directories starting with an underscore are not themes,
+and directories ending in `_book` are special themes just for book projects.
+
+### `build.js` #
+
+This is the file to run to execute the build process.
+
+`node build <projectName>`
+
+## Contributing #
+
+Guide to contributing and updating this repo.
+
+## Acknowledgements #
+
+### Authors #
+
+* John F Marion
+
+### Built With #
+
+### Other #
