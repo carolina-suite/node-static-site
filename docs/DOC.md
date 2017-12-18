@@ -7,6 +7,12 @@ A description of the theme.
 
 ## Getting Started #
 
+### Installation #
+
+Clone this theme into your `themes` directory.
+
+### Usage #
+
 To use this theme, simple change the theme value in your project's `config.yml`
 file to "themeName".
 
