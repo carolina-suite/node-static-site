@@ -19,4 +19,3 @@ Topics:
   * [Shared Includes](./INCLUDES.md)
   * [Theme Assets](./THEME_ASSETS.md)
   * [Documenting Themes](./DOC.md)
-  * [Adding Themes](./ADDING.md)
